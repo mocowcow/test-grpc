@@ -5,7 +5,7 @@ from concurrent import futures
 import file_transport_pb2_grpc
 import file_transport_pb2
 
-FILE_PATH = "./files"
+FILE_PATH = "./upload"
 
 
 class FileTransportServicer(file_transport_pb2_grpc.FileServiceServicer):
