@@ -10,11 +10,12 @@ message UploadResponse {
 }
 
 message DownloadRequest {
-
+    string filename = 1;
 }
 
 message DownloadResponse {
-
+    string result = 1;
+    bytes body = 2;
 }
 
 service FileService {
