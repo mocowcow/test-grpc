@@ -19,9 +19,15 @@ class UploadResponse(_message.Message):
     def __init__(self, result: _Optional[str] = ...) -> None: ...
 
 class DownloadRequest(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["filename"]
+    FILENAME_FIELD_NUMBER: _ClassVar[int]
+    filename: str
+    def __init__(self, filename: _Optional[str] = ...) -> None: ...
 
 class DownloadResponse(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["result", "body"]
+    RESULT_FIELD_NUMBER: _ClassVar[int]
+    BODY_FIELD_NUMBER: _ClassVar[int]
+    result: str
+    body: bytes
+    def __init__(self, result: _Optional[str] = ..., body: _Optional[bytes] = ...) -> None: ...

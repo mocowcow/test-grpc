@@ -15,7 +15,18 @@ class FileTransportServicer(file_transport_pb2_grpc.FileServiceServicer):
             bin_file.write(request.body)
         response = file_transport_pb2.UploadResponse()
         response.result = "ok"
-        print("got a file",request.filename)
+        print("got a file", request.filename)
+        return response
+
+    def Download(self, request, context):
+        path = os.path.join(FILE_PATH, request.filename)
+        response = file_transport_pb2.DownloadResponse()
+        with open(path, "rb") as bin_file:
+            body = bin_file.read()
+            response.body = body
+        response.result = "ok"
+        print("send a file", request.filename)
+        print(path,response.body)
         return response
 
 
