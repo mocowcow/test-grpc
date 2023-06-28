@@ -16,7 +16,7 @@ class FileTransportServicer(file_transport_pb2_grpc.FileServiceServicer):
         response = file_transport_pb2.UploadResponse()
         response.result = "ok"
         print("got a file",request.filename)
-        return super().Upload(request, context)
+        return response
 
 
 def serve():
