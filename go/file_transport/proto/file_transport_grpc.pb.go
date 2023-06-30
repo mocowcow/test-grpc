@@ -4,7 +4,7 @@
 // - protoc             v4.23.3
 // source: file_transport.proto
 
-package file_transport
+package proto
 
 import (
 	context "context"
@@ -36,7 +36,7 @@ func NewFileServiceClient(cc grpc.ClientConnInterface) FileServiceClient {
 
 func (c *fileServiceClient) Upload(ctx context.Context, in *UploadRequest, opts ...grpc.CallOption) (*UploadResponse, error) {
 	out := new(UploadResponse)
-	err := c.cc.Invoke(ctx, "/file_transport.FileService/Upload", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/FileService/Upload", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func (c *fileServiceClient) Upload(ctx context.Context, in *UploadRequest, opts 
 
 func (c *fileServiceClient) Download(ctx context.Context, in *DownloadRequest, opts ...grpc.CallOption) (*DownloadResponse, error) {
 	out := new(DownloadResponse)
-	err := c.cc.Invoke(ctx, "/file_transport.FileService/Download", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/FileService/Download", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func _FileService_Upload_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/file_transport.FileService/Upload",
+		FullMethod: "/FileService/Upload",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).Upload(ctx, req.(*UploadRequest))
@@ -112,7 +112,7 @@ func _FileService_Download_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/file_transport.FileService/Download",
+		FullMethod: "/FileService/Download",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).Download(ctx, req.(*DownloadRequest))
@@ -124,7 +124,7 @@ func _FileService_Download_Handler(srv interface{}, ctx context.Context, dec fun
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var FileService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "file_transport.FileService",
+	ServiceName: "FileService",
 	HandlerType: (*FileServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
