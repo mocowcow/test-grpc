@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x66ile_transport.proto\"/\n\rUploadRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x0c\n\x04\x62ody\x18\x02 \x01(\x0c\" \n\x0eUploadResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\"#\n\x0f\x44ownloadRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\"0\n\x10\x44ownloadResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\x12\x0c\n\x04\x62ody\x18\x02 \x01(\x0c\x32i\n\x0b\x46ileService\x12)\n\x06Upload\x12\x0e.UploadRequest\x1a\x0f.UploadResponse\x12/\n\x08\x44ownload\x12\x10.DownloadRequest\x1a\x11.DownloadResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x66ile_transport.proto\"/\n\rUploadRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x0c\n\x04\x62ody\x18\x02 \x01(\x0c\" \n\x0eUploadResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\"#\n\x0f\x44ownloadRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\"0\n\x10\x44ownloadResponse\x12\x0e\n\x06result\x18\x01 \x01(\t\x12\x0c\n\x04\x62ody\x18\x02 \x01(\x0c\x32i\n\x0b\x46ileService\x12)\n\x06Upload\x12\x0e.UploadRequest\x1a\x0f.UploadResponse\x12/\n\x08\x44ownload\x12\x10.DownloadRequest\x1a\x11.DownloadResponseB\x18Z\x16./file_transport/protob\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -21,6 +21,7 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'file_transport_pb2', _globa
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'Z\026./file_transport/proto'
   _globals['_UPLOADREQUEST']._serialized_start=24
   _globals['_UPLOADREQUEST']._serialized_end=71
   _globals['_UPLOADRESPONSE']._serialized_start=73
