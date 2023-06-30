@@ -28,17 +28,18 @@ func main() {
 	c := pb.NewFileServiceClient(conn)
 
 	// Contact the server and print out its response.
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
 	defer cancel()
 	request := pb.UploadRequest{}
 	request.Filename = "1111.txt"
-	var body []byte = []byte{}
+	var body []byte = []byte{33, 33, 33}
 	request.Body = body
 	fmt.Println(&request)
 
 	response, err := c.Upload(ctx, &request)
 	if err != nil {
 		fmt.Println("upload failed")
+		fmt.Println(err)
 	} else {
 		fmt.Println(response)
 	}
