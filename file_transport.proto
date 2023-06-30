@@ -1,4 +1,6 @@
 syntax = "proto3";
+package file_transport;
+option go_package="./file_transport";
 
 message UploadRequest {
     string filename = 1;
