@@ -1,5 +1,5 @@
-import grpc
 import os
+import grpc
 
 import file_transport_pb2_grpc
 import file_transport_pb2
