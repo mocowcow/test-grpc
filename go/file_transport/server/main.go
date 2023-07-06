@@ -37,7 +37,15 @@ func (s *server) Upload(ctx context.Context, in *pb.UploadRequest) (*pb.UploadRe
 }
 
 func (s *server) Download(ctx context.Context, in *pb.DownloadRequest) (*pb.DownloadResponse, error) {
-	return nil, nil
+	body, err := os.ReadFile(path.Join(filepath, in.Filename))
+
+	if err != nil {
+		return nil, err
+	}
+
+	res := pb.DownloadResponse{Result: "ok", Body: body}
+
+	return &res, nil
 
 }
 
