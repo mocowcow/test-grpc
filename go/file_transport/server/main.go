@@ -6,13 +6,15 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
+	"path"
 
 	pb "file_transport/proto"
 
 	"google.golang.org/grpc"
 )
 
-const filePath = "./upload"
+const filepath = "./upload"
 
 var (
 	port = flag.Int("port", 19810, "The server port")
@@ -23,7 +25,15 @@ type server struct {
 }
 
 func (s *server) Upload(ctx context.Context, in *pb.UploadRequest) (*pb.UploadResponse, error) {
-	return nil, nil
+	err := os.WriteFile(path.Join(filepath, in.Filename), in.Body, 0644)
+
+	if err != nil {
+		return nil, err
+	}
+
+	res := pb.UploadResponse{Result: "ok"}
+
+	return &res, nil
 }
 
 func (s *server) Download(ctx context.Context, in *pb.DownloadRequest) (*pb.DownloadResponse, error) {
