@@ -14,7 +14,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-const filepath = "./upload"
+const folderPath = "./upload"
 
 var (
 	port = flag.Int("port", 19810, "The server port")
@@ -25,7 +25,7 @@ type server struct {
 }
 
 func (s *server) Upload(ctx context.Context, in *pb.UploadRequest) (*pb.UploadResponse, error) {
-	err := os.WriteFile(path.Join(filepath, in.Filename), in.Body, 0644)
+	err := os.WriteFile(path.Join(folderPath, in.Filename), in.Body, 0644)
 
 	if err != nil {
 		return nil, err
@@ -37,7 +37,7 @@ func (s *server) Upload(ctx context.Context, in *pb.UploadRequest) (*pb.UploadRe
 }
 
 func (s *server) Download(ctx context.Context, in *pb.DownloadRequest) (*pb.DownloadResponse, error) {
-	body, err := os.ReadFile(path.Join(filepath, in.Filename))
+	body, err := os.ReadFile(path.Join(folderPath, in.Filename))
 
 	if err != nil {
 		return nil, err
@@ -50,7 +50,7 @@ func (s *server) Download(ctx context.Context, in *pb.DownloadRequest) (*pb.Down
 }
 
 func main() {
-	_ = os.MkdirAll(filepath, os.ModePerm)
+	_ = os.MkdirAll(folderPath, os.ModePerm)
 
 	flag.Parse()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
