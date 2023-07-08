@@ -50,6 +50,8 @@ func (s *server) Download(ctx context.Context, in *pb.DownloadRequest) (*pb.Down
 }
 
 func main() {
+	_ = os.MkdirAll(filepath, os.ModePerm)
+
 	flag.Parse()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
 	if err != nil {
