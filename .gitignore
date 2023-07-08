@@ -1,3 +1,5 @@
 *.pyc
-/upload
-/download
+python3/upload
+python3/download
+go/file_transport/server/upload
+go/file_transport/download_client/download
