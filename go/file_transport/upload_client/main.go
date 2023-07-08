@@ -31,8 +31,8 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*2)
 	defer cancel()
 	request := pb.UploadRequest{}
-	request.Filename = "1111.txt"
-	var body []byte = []byte{33, 33, 33}
+	request.Filename = "grpc_test.txt"
+	var body []byte = []byte("hello go")
 	request.Body = body
 	fmt.Println(&request)
 
