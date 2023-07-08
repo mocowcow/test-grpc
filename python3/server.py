@@ -7,6 +7,8 @@ import file_transport_pb2
 
 FILE_PATH = "./upload"
 
+if not os.path.isdir(FILE_PATH):
+    os.mkdir(FILE_PATH)
 
 class FileTransportServicer(file_transport_pb2_grpc.FileServiceServicer):
     def Upload(self, request, context):
