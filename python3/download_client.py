@@ -12,7 +12,7 @@ if not os.path.isdir(FILE_PATH):
 channel = grpc.insecure_channel('localhost:19810')
 stub = file_transport_pb2_grpc.FileServiceStub(channel)
 
-request = file_transport_pb2.DownloadRequest()
+request = file_transport_pb2.DownloadRequest()  # pylint: disable=no-member
 request.filename = "grpc_test.txt"
 response = stub.Download(request)
 
